@@ -6,9 +6,18 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
-//Login 
+// Cart
 router.get('/cart', (req, res) => {
     res.render('cart');
+});
+//Login 
+router.get('/signin', (req, res) => {
+    res.render('login');
+});
+
+// Orders
+router.get('/orders', (req, res) => {
+    res.render('orders');
 });
 
 //Register

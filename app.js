@@ -17,7 +17,7 @@ const con = mysql.createConnection({
 con.connect((function(err) {
   if (err) throw err;
   
-  console.log('connected as id ');
+  console.log('connected to MySQL server, ');
 }));
 
 // EJS
