@@ -3,13 +3,14 @@ const router = express.Router();
 
 // Start
 router.get('/', (req, res) => {
-    res.render('home');
+        res.render('home');
 });
 
 // Cart
 router.get('/cart', (req, res) => {
     res.render('cart');
 });
+
 //Login 
 router.get('/signin', (req, res) => {
     res.render('login');

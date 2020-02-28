@@ -20,28 +20,20 @@ app.set('view engine', 'ejs');
 
 
 // Routes
-app.use('/', require('./routes/index'));
+
 app.use('/users', require('./routes/users'));
 
 // DB message
-let obj = {};
-con.connect(function (err, req,res) {
-    if(err) {
-        console.log(err);
-    } else
-        console.log('Connected to Server');
-        // Mysql Query
-        con.query("SELECT * FROM products", function (err, result) {
-            if(err) throw err;
-            let obj = { obj : result}
-            // app.use(path.join(__dirname, 'index'), require('./routes/index'));
-            console.log(result);
-            
-        });
-})
+app.get('/', (req, res) => {
+    async = true;
+    con.query("SELECT * FROM products", function(err, rows, fields){
+        if (err) throw err
+        res.render('home', { items: rows });
+    })
+});
 
 app.listen(3001, () => {
-    console.log('Example app listening on port 3001!');
+    console.log('Example app listening on port 3000!');
 });
 
 //Run app, then load http://localhost:port in a browser to see the output.
