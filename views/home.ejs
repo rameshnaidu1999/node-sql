@@ -3,32 +3,19 @@
         <div class="row ">
           <% for(var i=0; i < items.length; i++) { %>
           <div class="col-lg-3 col-xl-3 col-md-10">
-            <div class="card mt-5 shadow mb-3 bg-white rounded border-danger" >
+            <div class="card mt-3 shadow mb-3 bg-white rounded border-danger" >
               <div class="card-img">
-                <img src="<%- items[i].image %>" alt="" srcset="" width="100%" />
+                <img src="<%- items[i].image %>" alt="" style="height: 30vh !important; width: 100% !important;"/>
               </div>
               <div class="card-body">
                 <h4> <%- items[i].title %> </h4>
-                <p> <%- items[i].info %> </p>
-                  <a href="users/cart"  class="btn btn-outline-danger btn-block">Add to Cart</a>
-                  <a href="users/register"  class="btn btn-danger btn-block" >Buy Now</a>
+                <h6> <%- items[i].info %> </h6>
+                  <button type="submit" class="btn btn-outline-danger btn-block">Add to Cart</button>
+                  <a href="users/buy"  class="btn btn-danger btn-block" >Buy Now</a>
               </div>
             </div>
           </div>
           <% } %> 
-          <div class="col-lg-3 col-xl-3 col-md-10">
-            <div class="card mt-5 shadow mb-3 bg-white rounded border-danger" >
-              <div class="card-img">
-                <img src="https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" srcset="" width="100%" />
-              </div>
-              <div class="card-body">
-                <h4>card title</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.  voluptate?</p>
-                  <a href="users/cart"  class="btn btn-outline-danger btn-block">Add to Cart</a>
-                  <a href="users/register"  class="btn btn-danger btn-block" >Buy Now</a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

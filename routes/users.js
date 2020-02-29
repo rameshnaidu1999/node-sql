@@ -1,14 +1,63 @@
 const express = require('express');
 const router = express.Router();
 
+const mysql = require('mysql');
+
+
+// Connect to MySql
+const con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "njsinfotech",
+  database : 'test'
+});
+
+
 // Start
 router.get('/', (req, res) => {
         res.render('home');
 });
 
+// DB message
+// router.get('/', (req, res) => {
+//     async = true;
+//     con.query("SELECT * FROM products", function(err, rows, fields){
+//         if (err) throw err
+//         res.render('home', { items: rows });
+//     })
+// });
+
 // Cart
-router.get('/cart', (req, res) => {
-    res.render('cart');
+//  router.get('/cart', (req, res) => {
+//      res.render('cart',);
+//  });
+
+//route for insert data
+router.get('/cart',(req, res) => {
+
+//     // let data = {product_name: req.body.product_name, product_price: req.body.product_price};
+//     //let sql = "INSERT COLUMNS INTO cart_table SELECT * FROM products";
+//     // let query = conn.query(sql,(err, results) => {
+//     //   if(err) throw err;
+//     //    res.redirect('submit', {list: results});
+//     //     console.log( req.params.id);
+//     // });
+
+    con.connect(function (err) {
+        if(err) throw err;
+        var sql = "INSERT INTO dummy_table2 SELECT * FROM products where id=1 ";
+        con.query(sql, (err, results) => {
+            if(err) throw err;
+           //console.log(results);
+            //console.log('Product added now'); 
+            res.render('', {list: results})
+        })
+    })
+});
+
+// Buy
+router.get('/buy', (req, res) => {
+    res.render('buy');
 });
 
 //Login 
