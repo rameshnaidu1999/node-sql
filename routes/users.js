@@ -44,13 +44,12 @@ router.get('/cart',(req, res) => {
 //     // });
 
     con.connect(function (err) {
-        if(err) throw err;
-        var sql = "INSERT INTO dummy_table2 SELECT * FROM products where id=1 ";
-        con.query(sql, (err, results) => {
+        var sql = "SELECT * FROM products WHERE id>3 ";
+        con.query(sql, (err, results, fields) => {
             if(err) throw err;
-           //console.log(results);
-            //console.log('Product added now'); 
-            res.render('', {list: results})
+           console.log(results);
+        console.log('Product added now'); 
+        res.render('cart', {list: results})
         })
     })
 });
@@ -59,6 +58,18 @@ router.get('/cart',(req, res) => {
 router.get('/buy', (req, res) => {
     res.render('buy');
 });
+
+router.get('/category',(req,res) => {
+    con.connect(function (err) {
+        var sql = "SELECT * FROM products WHERE category = 'Laptop' ";
+        con.query(sql, (err, results, fields) => {
+            if(err) throw err;
+           console.log(results);
+        console.log('Product added now'); 
+        res.render('category', {list: results})
+        })
+    })
+})
 
 //Login 
 router.get('/signin', (req, res) => {

@@ -8,10 +8,10 @@
                 <img src="<%- items[i].image %>" alt="" style="height: 30vh !important; width: 100% !important;"/>
               </div>
               <div class="card-body">
-                <h4> <%- items[i].title %> </h4>
+                <h3> <%- items[i].title %> </h3>
                 <h6> <%- items[i].info %> </h6>
-                  <button type="submit" class="btn btn-outline-danger btn-block">Add to Cart</button>
-                  <a href="users/buy"  class="btn btn-danger btn-block" >Buy Now</a>
+                  <button  class="btn btn-outline-danger btn-block" onclick=" addtocart(items[i].image, items[i].title),  items[i].info " >Add to Cart</button>
+                  <button href="users/buy"  class="btn btn-danger btn-block" >Buy Now</button>
               </div>
             </div>
           </div>

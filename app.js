@@ -30,10 +30,27 @@ app.get('/', (req, res) => {
         if (err) throw err
         res.render('home', { items: rows });
     })
+
+    const home = (req, res) => {
+        res.render('home', {
+            title: 'My API',
+            products: products,
+            deleteProduct: deleteProduct
+        });
+    }
+    
+    var addtocart = function(){
+        console.log("hello");
+    }
+
+    // con.query("SELECT * FROM category", function(err, rows2, fields){
+    //     if (err) throw err
+    //     res.render('home', { items2: rows2 });
+    // })
 });
 
 app.listen(3001, () => {
-    console.log('Example app listening on port 3000!');
+    console.log('Example app listening on port 3001!');
 });
 
 //Run app, then load http://localhost:port in a browser to see the output.
