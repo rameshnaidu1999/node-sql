@@ -1,4 +1,6 @@
-    <div class="continer-fluid">
+<%- include('./header') %>
+
+<div class="continer-fluid">
       <div class="mx-3">
         <div class="row ">
           <% for(var i=0; i < items.length; i++) { %>
@@ -10,7 +12,7 @@
               <div class="card-body">
                 <h3> <%- items[i].title %> </h3>
                 <h6> <%- items[i].info %> </h6>
-                  <button  class="btn btn-outline-danger btn-block" onclick=" addtocart(items[i].image, items[i].title),  items[i].info " >Add to Cart</button>
+                  <button type="button" class="btn btn-outline-danger btn-block" id="add_cart_btn" onclick= "addtocart()" >Add to Cart</button>
                   <button href="users/buy"  class="btn btn-danger btn-block" >Buy Now</button>
               </div>
             </div>
@@ -19,8 +21,9 @@
         </div>
       </div>
     </div>
+    <script src="cart.js"></script>
 
-
+    <%- include('./footer') %>
     
 
 

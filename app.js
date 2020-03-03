@@ -31,22 +31,21 @@ app.get('/', (req, res) => {
         res.render('home', { items: rows });
     })
 
-    const home = (req, res) => {
-        res.render('home', {
-            title: 'My API',
-            products: products,
-            deleteProduct: deleteProduct
-        });
-    }
-    
-    var addtocart = function(){
-        console.log("hello");
-    }
-
     // con.query("SELECT * FROM category", function(err, rows2, fields){
     //     if (err) throw err
     //     res.render('home', { items2: rows2 });
     // })
+});
+app.post('/', (req, res) =>  function addtocart(err) {
+    if(err) throw err;
+    console.log('button clicked to cart');
+    
+})
+
+app.post('/', (req, res) => {
+    function addtocart() {
+        console.log('Added to cart');
+    }
 });
 
 app.listen(3001, () => {
@@ -62,3 +61,4 @@ app.listen(3001, () => {
 //       <td><%= rows[i].PASS %></td>
 //     </tr>
 //  <% } %> -->
+// items[i].image, items[i].title,  items[i].info 
